@@ -11,9 +11,10 @@ html {
 	// overflow: hidden;
 }
 
+$textColor: #34153F;
+
 .half {
 	width: 50%;
-
 }
 
 .rightHalf {
@@ -42,16 +43,19 @@ h5,
 h6,
 p,
 button,
-label,
-a {
+label {
 	font-family: 'Playfair Display', serif;
-	color: #34153F;
+	color: $textColor;
+}
+
+a {
+	color: rgb(213, 229, 248);
 }
 
 h1 {
 	font-size: 7rem;
 	letter-spacing: 2px;
-	line-height: 9rem;
+	line-height: 7rem;
 	margin: 10px 0 0 0;
 }
 
@@ -65,7 +69,7 @@ h2 {
 h3 {
 	font-size: 2.5rem;
 	font-style: italic;
-	margin: 10px;
+	margin: 10px 0;
 	letter-spacing: 1.5px;
 }
 
@@ -80,15 +84,15 @@ a {
 }
 
 button {
-	background-color: inherit;
-	border: 1px solid #34153F;
+	background-color: $textColor;
+	border: 1px solid $textColor;
 	border-radius: 4px;
 	padding: 10px;
+	transition: all 0.3s;
 
 	&:hover {
 		background-color: rgba(255,255,255,0.5);
 	}
-
 }
 
 /* HEADER
@@ -107,7 +111,6 @@ header {
 		background-image: url('images/purpledrink.jpg');
 		background-size: cover;
 	}
-
 }
 
 .headerText {
@@ -116,13 +119,11 @@ header {
 	h3 {
 		margin-bottom: 50px;
 	}
-
 	span {
 		text-transform: uppercase;
 		font-weight: 700;
 		letter-spacing: 1.5px;
 	}
-
 	button a {
 		padding: 10px;
 		font-size: 1.7rem;
@@ -130,6 +131,7 @@ header {
 
 		&:hover {
 			color: #000;
+			background-color: 
 		}
 	}
 }
@@ -171,8 +173,11 @@ header {
 	87.5% {
 		transform: rotate(10deg);
 	}
-	100% {
+	95% {
 		transform: rotate(-10deg);
+	}
+	100% {
+		transform: rotate(0);
 	}
 }
 
@@ -185,12 +190,12 @@ header {
 	.leftHalf {
 		background-color: rgba(224,16,40,0.19);
 	}
-
 	.rightHalf {
 		background-image: url('images/drinksincoupes.jpg');
 		background-size: cover;
 	}
 }
+
 select {
 	display: inline-block;
 	margin: 10px 0 50px;
@@ -198,13 +203,13 @@ select {
 	font-style: italic;
 	letter-spacing: 1.5px;
 	font-size: 1.5rem;
-	padding: .7rem; 
+	padding: 1rem; 
     background-color: inherit;
-    -webkit-appearance: none;
-   	-moz-appearance: none;
-   	appearance: none;
-   	border: 1px solid #34153F;
-   	color: #34153F;
+    // -webkit-appearance: none;
+   	// -moz-appearance: none;
+   	// appearance: none;
+   	border: 1px solid $textColor;
+   	color: $textColor;
    	// float: left;
    	clear: both;
    	display: block;
@@ -215,9 +220,11 @@ select {
    	}
 }
 
-.formSection {
+.formSection, 
+.loader {
 	margin: 150px 0 0 22%;
 	text-align: left;
+	transition: all 0.4s;
 
 	label: {
 		width: 100%;
@@ -227,10 +234,25 @@ select {
 	}
 }
 
+.loader { 
+	padding: 0 60px 0 0;
+	text-align: left;
+
+	h6 {
+		font-size: 2.5rem;
+	}
+	img {
+		margin: 10% 20%;
+		width: 20%;
+		-webkit-animation: wiggle 0.7s infinite;
+	}
+}
+
+
 input[type=submit] {
-	background-color: inherit;
-	border: 1px solid #34153F;
-	color: #34153F;
+	background-color: $textColor;
+	border: 1px solid $textColor;
+	color: #F8D1D5;
 	border-radius: 4px;
 	padding: 0.7rem 30px;
 	margin: 20px 0 ;
@@ -240,6 +262,7 @@ input[type=submit] {
 	font-style: italic;
 	font-size: 2rem;
 	font-family: 'Playfair Display', serif;
+	transition: all 0.3s;
 
 	&:hover {
 		background-color: rgba(255,255,255,0.5);
@@ -251,6 +274,13 @@ option span {
 	font-size: 0.5rem;
 }
 
+.hide {
+	opacity: 0;
+}
+
+.remove  {
+	display: none;
+}
 
 /* DRINK SECTION
 ------------------ */
@@ -260,8 +290,6 @@ option span {
 		background-color: rgba(80,226,193,0.4);
 		position: relative;
 	}
-
-
 	h3 {
 		margin: 0;
 	}
@@ -271,7 +299,6 @@ option span {
 	text-align: right;
 	margin: 120px 10% 0 0;
 
-
 	h2 {
 		margin-bottom: 10px;
 		font-style: italic;
@@ -279,10 +306,10 @@ option span {
 	h3 {
 		margin-bottom: 20px;
 	}
-
 	input[type=submit] {
-		background-color: inherit;
-		border: 1px solid #34153F;
+		background-color: $textColor;
+		border: 1px solid $textColor;
+		color: #B8F2E5;
 		border-radius: 4px;
 		padding: 0.7rem 30px;
 		margin: 0 ;
@@ -297,11 +324,12 @@ option span {
 			color: #000;
 		}
 	}
-
 	.another {
 		font-variant: none;
 	}
 }
+
+
 
 .drinkContainer {
 	text-align: center;
@@ -311,20 +339,16 @@ option span {
 		font-size: 4rem;
 		margin-top: 30px;
 	}
-
 	p {
 		width: 60%;
 		margin: 0 auto;
 		font-size: 1.4rem;
 	}
-
 	.instruction {
 		position: relative;
 		bottom: 35px;
 		font-size: 1.2rem;
-
 	}
-
 	img {
 		margin: 0 auto;
 		position: relative;
@@ -339,6 +363,7 @@ option span {
 		margin: 20px 0 20px 0 ; 
 		display: inline-block;
 		transition: all 0.3s;
+		text-shadow: 0 0 5px darken(#B8F2E5, 100%);
 
 		&:hover {
 			-webkit-animation: wiggle 0.5s;
@@ -346,11 +371,15 @@ option span {
 		}
 }
 
+.mobileFooter {
+	text-align: center;
+	display: none;
+}
+
 footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	
 
 	p {
 		width: 100%;
@@ -370,21 +399,61 @@ footer {
 			&:hover {
 				transform: scale(1.2);
 				color: turquoise;
-
 			}
 		}
 	}
 }
 
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 1100px) {
+	html {
+		overflow-y: scroll;
+	}
 	header .rightHalf,
 	.formPage .rightHalf {
 		display: none;
 	}
 
 	header .leftHalf,
-	.formPage .leftHalf {
+	.formPage .leftHalf, 
+	.drinkSection .leftHalf,
+	.drinkSection .rightHalf {
 		width: 100%;
+	}
+	.headerText, {
+		padding-left: 7%;
+		h1 {
+			font-size: 5rem;
+			line-height: 1.2;
+		}
+	}
+	.formSection {
+		margin-left: 7%;
+	}
+	.drinkSection {
+		.leftHalf {
+			height: auto;
+
+			p {
+				display: none;
+			}
+		}
+		.twitter {
+			width: 5%;
+		}
+	}
+	.drinkSection {
+		.leftHalf {
+			text-align: center;
+		}
+		.rightHalf {
+			height: auto;
+		}
+	}
+	.mobileFooter {
+		display: block;
+		a {
+			color: $textColor;
+		}
 	}
 }

@@ -16,9 +16,6 @@ drinkApp.init = function() {
     }, 500);
     });
 
-
-    
-
     // drinkApp.twitterButton();		
 }
 // later we will be able to run it with artApp.init();
@@ -33,8 +30,10 @@ drinkApp.getDrinks = function() {
 			pageSize : 2000
 		},
 		success : function(drinkResult) {
-			console.log("Success! (drinks)");
-			console.log(drinkResult);
+			// console.log("Success! (drinks)");
+			// console.log(drinkResult);
+			$('.loader').addClass('remove');
+			$('.formSection').removeClass('hide');
 			drinkApp.findCocktail(drinkResult);
 		}
 	});
@@ -93,7 +92,7 @@ drinkApp.findCocktail = function(drinkResult) {
 				var drinkImage = $('<img>').attr('src', drinkImageUrl);
 				var ingredients = $('<div>').addClass('ingredientsList')
 				for (var l=0; l < cocktail[i].ingredients.length; l++) {
-					console.log(cocktail[i].ingredients[l]);
+					
 					var p = $('<p>').addClass('ingredient').text(cocktail[i].ingredients[l].textPlain);
 						$(ingredients).append(p);
 				}	
@@ -132,12 +131,10 @@ drinkApp.modSpirit = function() {
 			pageSize : 500
 		},
 		success : function(modResult) {
-			console.log('success (mod)!');
 			drinkApp.selectMod(modResult);
 		}
 	}); // end ajax
 } // end tastes()
-
 
 drinkApp.selectMod = function(modResult) {
 	var modArray = modResult.result;
@@ -165,7 +162,6 @@ drinkApp.tastes = function() {
 			pageSize : 100
 		},
 		success : function(tasteResult) {
-			console.log('success (taste)!');
 			drinkApp.selectTaste(tasteResult);
 		}
 	}); // end ajax
