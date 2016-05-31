@@ -103,7 +103,7 @@ header {
 	.leftHalf {
 		background-color: rgba(115,169,233,0.29);
 		text-align: left;
-		height: 100vh;
+		min-height: 100vh;
 		box-shadow: 0 0 8px rgba(0,0,0,0.2);
 	}
 
@@ -222,7 +222,7 @@ select {
 
 .formSection, 
 .loader {
-	margin: 150px 0 0 22%;
+	margin: 150px 0 0 10%;
 	text-align: left;
 	transition: all 0.4s;
 
@@ -235,16 +235,21 @@ select {
 }
 
 .loader { 
-	padding: 0 60px 0 0;
+	width: 70%;
+	padding: 0 10px 0 0;
 	text-align: left;
 
 	h6 {
 		font-size: 2.5rem;
 	}
-	img {
-		margin: 10% 20%;
+	.shakerContainer {
+		text-align: center;
+		width: 70%;
+		img {
+		margin: 10%;
 		width: 20%;
 		-webkit-animation: wiggle 0.7s infinite;
+	}
 	}
 }
 
@@ -329,8 +334,6 @@ option span {
 	}
 }
 
-
-
 .drinkContainer {
 	text-align: center;
 
@@ -376,15 +379,14 @@ option span {
 	display: none;
 }
 
-footer {
+.deskFooter {
+	width: 100%;
 	position: absolute;
 	bottom: 0;
-	width: 100%;
-
 	p {
 		width: 100%;
 		text-align: right;
-		color: #fff;
+		color: white;
 		padding-right: 10%;
 		font-size: 1.5rem;
 
@@ -439,7 +441,7 @@ footer {
 			}
 		}
 		.twitter {
-			width: 5%;
+			min-width: 5%;
 		}
 	}
 	.drinkSection {
@@ -455,5 +457,11 @@ footer {
 		a {
 			color: $textColor;
 		}
+	}
+}
+
+@media all and (max-width: 500px) {
+	.twitter {
+		width: 12%;
 	}
 }
