@@ -11,6 +11,10 @@ html {
 	// overflow: hidden;
 }
 
+body {
+	overflow: hidden;
+}
+
 $textColor: #34153F;
 
 .half {
@@ -21,6 +25,8 @@ $textColor: #34153F;
 	float: right;
 	height: 100vh;
 	overflow: hidden;
+	width: calc(100% - 640px);
+	background-position: 50% 50%;
 
 	.bkgnd {
 		width: 100%;
@@ -33,6 +39,7 @@ $textColor: #34153F;
 	float: left;
 	height: 100vh;
 	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	width: 640px;
 }
 
 h1,
@@ -131,7 +138,6 @@ header {
 
 		&:hover {
 			color: #000;
-			background-color: 
 		}
 	}
 }
@@ -203,14 +209,12 @@ select {
 	font-style: italic;
 	letter-spacing: 1.5px;
 	font-size: 1.5rem;
+	height: 40px;
+	width: 278px;
 	padding: 1rem; 
     background-color: inherit;
-    // -webkit-appearance: none;
-   	// -moz-appearance: none;
-   	// appearance: none;
    	border: 1px solid $textColor;
    	color: $textColor;
-   	// float: left;
    	clear: both;
    	display: block;
    	text-align: center;
@@ -407,10 +411,12 @@ option span {
 }
 
 
-@media all and (max-width: 1100px) {
-	html {
-		overflow-y: scroll;
+@media all and (max-width: 900px) {
+
+	body {
+		overflow: scroll;
 	}
+
 	header .rightHalf,
 	.formPage .rightHalf {
 		display: none;
