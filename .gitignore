@@ -1,3 +1,4 @@
 node_modules/
 Gulpfile.js
 prepros.cfg
+npm-debug.log
