@@ -123,7 +123,7 @@ drinkApp.findCocktail = function(drinkResult) {
 // create a function that will go to the datamod and get the types of modSpirit
 drinkApp.modSpirit = function() {
 	$.ajax({
-		url : 'http://addb.absolutdrinks.com/ingredients/',
+		url : 'https://addb.absolutdrinks.com/ingredients/',
 		type : 'GET',
 		dataType : 'jsonp', 
 		data : {
@@ -154,7 +154,7 @@ drinkApp.selectMod = function(modResult) {
 // create a function that will go to the database and get the types of taste
 drinkApp.tastes = function() {
 	$.ajax({
-		url : 'http://addb.absolutdrinks.com/tastes/',
+		url : 'https://addb.absolutdrinks.com/tastes/',
 		type : 'GET',
 		dataType : 'jsonp', 
 		data : {
@@ -182,7 +182,7 @@ drinkApp.selectTaste = function(tasteResult) {
 // OTHER STUFF
 ////////////////////////////////////////////
 
-drinkApp.key = '42f8ec39118a47589d362570c51b566b';
+drinkApp.key = 'dc4eeddfd0924944b6294dadfa22bc9f';
 
 $(function() {
 	drinkApp.init();
